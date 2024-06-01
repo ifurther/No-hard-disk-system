@@ -1,11 +1,11 @@
-﻿1.伺服器配備:
+﻿1. 伺服器配備:
 CPU : i5 以上
 RAM : 8G 以上
 硬碟: 500 G 一顆(安裝 Linux 系統用)
 SSD硬碟:480G 二顆以上(做RAID 陣列用)
 網路卡:1000Mbps傳輸速二片以上(分流用)
 
-2.客戶端電腦必需相同配備,不然進不了 Windows 10 系統(目前還再研究中)
+2. 客戶端電腦必需相同配備,不然進不了 Windows 10 系統(目前還再研究中)
 
 (一)伺服器系統安裝及設定
 下載CentOS 7 x86_64-Minimal 的ISO
@@ -18,7 +18,8 @@ nmtui-edit
 service network restart
 ping 168.95.1.1
 
-#安裝所需套件
+# 安裝所需套件
+```bash
 yum -y install epel-release
 yum -y update
 #yum -y install ftp://drbl.nchc.org.tw/drbl-core/x86_64/RPMS.drbl-unstable/drbl-2.30.20-drbl1.noarch.rpm
@@ -28,10 +29,11 @@ yum -y install yum-utils rpcbind tftp-server tftp telnet ftp rsync mailx nfs-uti
 yum -y install dhcp* targetcli iscsi-initiator-utils grub2-efi-x64* xz-devel mkisofs git ipxe-bootimgs
 #yum -y install https://archive.fedoraproject.org/pub/archive/fedora/linux/releases/19/Everything/x86_64/os/Packages/a/aoetools-30-5.fc19.x86_64.rpm
 #yum -y install https://archive.fedoraproject.org/pub/archive/fedora/linux/releases/19/Everything/x86_64/os/Packages/v/vblade-14-10.fc19.x86_64.rpm
-
-###關掉 SELINUX 
+```
+# 關掉 SELINUX
+```
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
-
+```
 ###新增一個使用者來設定 tftpboot 路徑
 adduser acfs
 passwd acfs
