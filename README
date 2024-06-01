@@ -19,6 +19,7 @@ service network restart
 ping 168.95.1.1
 
 # 安裝所需套件
+```bash
 yum -y install epel-release
 yum -y update
 #yum -y install ftp://drbl.nchc.org.tw/drbl-core/x86_64/RPMS.drbl-unstable/drbl-2.30.20-drbl1.noarch.rpm
@@ -28,7 +29,7 @@ yum -y install yum-utils rpcbind tftp-server tftp telnet ftp rsync mailx nfs-uti
 yum -y install dhcp* targetcli iscsi-initiator-utils grub2-efi-x64* xz-devel mkisofs git ipxe-bootimgs
 #yum -y install https://archive.fedoraproject.org/pub/archive/fedora/linux/releases/19/Everything/x86_64/os/Packages/a/aoetools-30-5.fc19.x86_64.rpm
 #yum -y install https://archive.fedoraproject.org/pub/archive/fedora/linux/releases/19/Everything/x86_64/os/Packages/v/vblade-14-10.fc19.x86_64.rpm
-
+```
 ###關掉 SELINUX 
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
