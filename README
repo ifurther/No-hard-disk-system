@@ -1,11 +1,11 @@
-﻿1.伺服器配備:
+﻿1. 伺服器配備:
 CPU : i5 以上
 RAM : 8G 以上
 硬碟: 500 G 一顆(安裝 Linux 系統用)
 SSD硬碟:480G 二顆以上(做RAID 陣列用)
 網路卡:1000Mbps傳輸速二片以上(分流用)
 
-2.客戶端電腦必需相同配備,不然進不了 Windows 10 系統(目前還再研究中)
+2. 客戶端電腦必需相同配備,不然進不了 Windows 10 系統(目前還再研究中)
 
 (一)伺服器系統安裝及設定
 下載CentOS 7 x86_64-Minimal 的ISO
@@ -18,7 +18,7 @@ nmtui-edit
 service network restart
 ping 168.95.1.1
 
-#安裝所需套件
+# 安裝所需套件
 yum -y install epel-release
 yum -y update
 #yum -y install ftp://drbl.nchc.org.tw/drbl-core/x86_64/RPMS.drbl-unstable/drbl-2.30.20-drbl1.noarch.rpm
@@ -88,8 +88,8 @@ reboot
 fdisk /dev/sdb
 fdisk /dev/sdc
 #更新 Linux Kernel 分割表資訊,讓新 partition 不需重開機即可生效
-partprobe
-
+`partprobe`
+`
 [root@localhost ~]# fdisk -l /dev/sdb
 所用裝置 開機      開始         結束      區塊   識別號  系統
 /dev/sdb1            2048   104857599    52427776   fd  Linux raid autodetect
@@ -100,7 +100,7 @@ partprobe
 
 ###使用 mdadm 指令，以建立 RAID 0 陣列：
 mdadm -C /dev/md0 --level=raid0 --raid-devices=2 /dev/sdb1 /dev/sdc1
-
+`
 #1. 顯示目前 RAID 狀態
 # mdadm --detail /dev/md0 | tail -n 2
 #    Number   Major   Minor   RaidDevice State
